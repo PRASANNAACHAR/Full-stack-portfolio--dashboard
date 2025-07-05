@@ -91,7 +91,7 @@ const projectSlice = createSlice({
 export const getALlProjects = ()=>async(dispatch)=>{
   dispatch(projectSlice.actions.getAllProjectsRequest());
   try {
-    const {data} = await axios.get("http://localhost:4000/api/v1/project/getall",{withCredentials: true});
+    const {data} = await axios.get("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/project/getall",{withCredentials: true});
     dispatch(projectSlice.actions.getAllProjectsSuccess(data.projects));
     dispatch(projectSlice.actions.clearAllErrors());
   } catch (error) {
@@ -103,7 +103,7 @@ export const getALlProjects = ()=>async(dispatch)=>{
 export const addNewProject = (data)=>async(dispatch)=>{
     dispatch(projectSlice.actions.addNewProjectRequest());
     try {
-        const response = await axios.post("http://localhost:4000/api/v1/project/add", data, {
+        const response = await axios.post("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/project/add", data, {
             withCredentials: true,
             headers: {"Content-Type": "multipart/form-data"}
         });
@@ -117,7 +117,7 @@ export const addNewProject = (data)=>async(dispatch)=>{
 export const  deleteProject = (id)=>async(dispatch)=>{
     dispatch(projectSlice.actions.deleteProjectRequest());
     try {
-        const {data} = await axios.delete(`http://localhost:4000/api/v1/project/delete/${id}`,{withCredentials: true, } );
+        const {data} = await axios.delete(`https://full-stack-portfolio-backend-4077.onrender.com/api/v1/project/delete/${id}`,{withCredentials: true, } );
         dispatch(projectSlice.actions.deleteProjectSuccess(data.message));
         dispatch(projectSlice.actions.clearAllErrors())
     } catch (error) {
@@ -128,7 +128,7 @@ export const  deleteProject = (id)=>async(dispatch)=>{
 export const updateProject = (id, newData)=>async(dispatch)=>{
     dispatch(projectSlice.actions.updateProjectRequest());
     try {
-        const {data} = await axios.put(`http://localhost:4000/api/v1/project/update/${id}`,newData,
+        const {data} = await axios.put(`https://full-stack-portfolio-backend-4077.onrender.com/api/v1/project/update/${id}`,newData,
              {withCredentials: true, headers: {"Content-Type": "multipart/form-data"}} );
         dispatch(projectSlice.actions.updateProjectSuccess(data.message));
         dispatch(projectSlice.actions.clearAllErrors())

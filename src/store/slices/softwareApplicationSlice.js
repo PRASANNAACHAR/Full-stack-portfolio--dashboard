@@ -77,7 +77,7 @@ const softwareApplicationSlice = createSlice({
 export const getAllSoftwareApplications = ()=> async(dispatch)=>{
     dispatch(softwareApplicationSlice.actions.getAllSoftwareApplicationsRequest());
     try {
-        const {data} = await axios.get("http://localhost:4000/api/v1/softwareapplication/getall", {withCredentials: true})
+        const {data} = await axios.get("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/softwareapplication/getall", {withCredentials: true})
         dispatch(softwareApplicationSlice.actions.getAllSoftwareApplicationsSuccess(data.softwareApplications));
         dispatch(softwareApplicationSlice.actions.clearAllErrors());
     } catch (error) {
@@ -88,7 +88,7 @@ export const getAllSoftwareApplications = ()=> async(dispatch)=>{
 export const addNewSoftwareApplication = (data)=> async(dispatch)=>{
  dispatch(softwareApplicationSlice.actions.addNewSoftwareRequest());
  try {
-   const response = await axios.post("http://localhost:4000/api/v1/softwareapplication/add", data, {withCredentials: true, headers: {"Content-Type":"multipart/form-data"},
+   const response = await axios.post("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/softwareapplication/add", data, {withCredentials: true, headers: {"Content-Type":"multipart/form-data"},
 })
 dispatch(softwareApplicationSlice.actions.addNewSoftwareSuccess(response.data.message));
 dispatch(softwareApplicationSlice.actions.clearAllErrors());
@@ -100,7 +100,7 @@ dispatch(softwareApplicationSlice.actions.clearAllErrors());
 export const deleteSoftwareApplication = (id)=>async(dispatch)=>{
     dispatch(softwareApplicationSlice.actions.deleteApplicationRequest());
     try {
-       const {data} = await axios.delete(`http://localhost:4000/api/v1/softwareapplication/delete/${id}`,{ withCredentials: true});
+       const {data} = await axios.delete(`https://full-stack-portfolio-backend-4077.onrender.com/api/v1/softwareapplication/delete/${id}`,{ withCredentials: true});
        dispatch(softwareApplicationSlice.actions.deleteApplicationSuccess(data.message));
        dispatch(softwareApplicationSlice.actions.clearAllErrors());
     } catch (error) {

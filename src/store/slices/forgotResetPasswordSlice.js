@@ -51,7 +51,7 @@ const forgotResetPassSlice = createSlice({
 export const forgotPassword = (email)=> async(dispatch)=>{
    dispatch(forgotResetPassSlice.actions.forgotPasswordRequest());
    try {
-    const {data} = await axios.post("http://localhost:4000/api/v1/user/password/forgot",{email}, {withCredentials: true, headers: {"Content-Type": "application/json" }}
+    const {data} = await axios.post("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/user/password/forgot",{email}, {withCredentials: true, headers: {"Content-Type": "application/json" }}
     );
     dispatch(forgotResetPassSlice.actions.forgotPasswordSuccess(data.message));
     dispatch(forgotResetPassSlice.actions.clearAllErrors());
@@ -63,7 +63,7 @@ export const forgotPassword = (email)=> async(dispatch)=>{
 export const resetPassword = (token, password, confirmPassword)=> async(dispatch)=>{
     dispatch(forgotResetPassSlice.actions.resetPasswordRequest());
     try {
-     const {data} = await axios.put(`http://localhost:4000/api/v1/user/password/reset/${token}`,
+     const {data} = await axios.put(`https://full-stack-portfolio-backend-4077.onrender.com/api/v1/user/password/reset/${token}`,
     {password, confirmPassword}, 
     {withCredentials: true, headers: {"Content-Type": "application/json" }}
      );

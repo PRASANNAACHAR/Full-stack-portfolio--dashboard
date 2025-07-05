@@ -57,7 +57,7 @@ const messageSlice = createSlice({
 export const getAllMessages = () =>async(dispatch) => {
     dispatch(messageSlice.actions.getAllMessagesRequest());
     try {
-        const {data} = await axios.get("http://localhost:4000/api/v1/message/getall", {withCredentials: true})
+        const {data} = await axios.get("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/message/getall", {withCredentials: true})
         dispatch(messageSlice.actions.getAllMessagesSuccess(data.messages));
         dispatch(messageSlice.actions.clearAllErrors());
     } catch (error) {
@@ -70,7 +70,7 @@ export const getAllMessages = () =>async(dispatch) => {
 export const deleteMessage = (id)=>async(dispatch)=>{
     dispatch(messageSlice.actions.deleteMessageRequest());
     try {
-       const {data} = await axios.delete(`http://localhost:4000/api/v1/message/delete/${id}`,{ withCredentials: true});
+       const {data} = await axios.delete(`https://full-stack-portfolio-backend-4077.onrender.com/api/v1/message/delete/${id}`,{ withCredentials: true});
        dispatch(messageSlice.actions.deleteMessageSuccess(data.message));
        dispatch(messageSlice.actions.clearAllErrors());
     } catch (error) {

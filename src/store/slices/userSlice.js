@@ -116,7 +116,7 @@ const userSlice = createSlice({
 export const login = (email, password)=> async(dispatch)=>{
     dispatch(userSlice.actions.loginRequest());
    try {
-    const { data } = await axios.post("http://localhost:4000/api/v1/user/login",
+    const { data } = await axios.post("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/user/login",
     {email,password},
     {withCredentials: true, headers: {"Content-Type": "application/json"}}
 );
@@ -131,7 +131,7 @@ dispatch(userSlice.actions.clearAllErrors());
 export const getUser = ()=> async(dispatch)=>{
     dispatch(userSlice.actions.loadUserRequest());
    try {
-    const { data } = await axios.get("http://localhost:4000/api/v1/user/me",
+    const { data } = await axios.get("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/user/me",
         {withCredentials: true}
 );
 dispatch(userSlice.actions.loadUserSuccess(data.user));
@@ -143,7 +143,7 @@ dispatch(userSlice.actions.clearAllErrors());
 
 export const logout = ()=> async(dispatch)=>{
    try {
-    const { data } = await axios.get("http://localhost:4000/api/v1/user/logout",
+    const { data } = await axios.get("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/user/logout",
         {withCredentials: true}
 );
 dispatch(userSlice.actions.logoutSuccess(data.message));
@@ -156,7 +156,7 @@ dispatch(userSlice.actions.clearAllErrors());
 export  const updatePassword = (currentPassword, newPassword, confirmNewPassword)=>async(dispatch)=>{
    dispatch(userSlice.actions.updatePasswordRequest());
    try {
-    const {data} = await axios.put("http://localhost:4000/api/v1/user/update/password",{currentPassword, newPassword, confirmNewPassword},
+    const {data} = await axios.put("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/user/update/password",{currentPassword, newPassword, confirmNewPassword},
         {
             withCredentials: true, 
             headers: {"Content-Type": "application/json"},
@@ -172,7 +172,7 @@ export  const updatePassword = (currentPassword, newPassword, confirmNewPassword
 export  const updateProfile = (newData)=>async(dispatch)=>{
     dispatch(userSlice.actions.updateProfileRequest());
     try {
-     const {data} = await axios.put("http://localhost:4000/api/v1/user/update/me",
+     const {data} = await axios.put("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/user/update/me",
         newData,
          {
              withCredentials: true, 

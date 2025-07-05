@@ -92,7 +92,7 @@ const skillSlice = createSlice({
 export const getAllSkills = ()=> async(dispatch)=>{
     dispatch(skillSlice.actions.getAllSkillsRequest());
     try {
-        const {data} = await axios.get("http://localhost:4000/api/v1/skill/getall", {withCredentials: true})
+        const {data} = await axios.get("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/skill/getall", {withCredentials: true})
         dispatch(skillSlice.actions.getAllSkillsSuccess(data.skills));
         dispatch(skillSlice.actions.clearAllErrors());
     } catch (error) {
@@ -103,7 +103,7 @@ export const getAllSkills = ()=> async(dispatch)=>{
 export const addNewSkill = (data)=> async(dispatch)=>{
  dispatch(skillSlice.actions.addNewSkillRequest());
  try {
-   const response = await axios.post("http://localhost:4000/api/v1/skill/add", data, {withCredentials: true, headers: {"Content-Type":"multipart/form-data"},
+   const response = await axios.post("https://full-stack-portfolio-backend-4077.onrender.com/api/v1/skill/add", data, {withCredentials: true, headers: {"Content-Type":"multipart/form-data"},
 })
 dispatch(skillSlice.actions.addNewSkillSuccess(response.data.message));
 dispatch(skillSlice.actions.clearAllErrors());
@@ -115,7 +115,7 @@ dispatch(skillSlice.actions.clearAllErrors());
 export const deleteSkill = (id)=>async(dispatch)=>{
     dispatch(skillSlice.actions.deleteSkillRequest());
     try {
-       const {data} = await axios.delete(`http://localhost:4000/api/v1/skill/delete/${id}`,{ withCredentials: true});
+       const {data} = await axios.delete(`https://full-stack-portfolio-backend-4077.onrender.com/api/v1/skill/delete/${id}`,{ withCredentials: true});
        dispatch(skillSlice.actions.deleteSkillSuccess(data.message));
        dispatch(skillSlice.actions.clearAllErrors());
     } catch (error) {
@@ -126,7 +126,7 @@ export const deleteSkill = (id)=>async(dispatch)=>{
 export const updateSkill = (id, proficiency)=>async(dispatch)=>{
  dispatch(skillSlice.actions.updateSkillRequest());
  try {
-    const {data} = await axios.put(`http://localhost:4000/api/v1/skill/update/${id}`, {proficiency},{
+    const {data} = await axios.put(`https://full-stack-portfolio-backend-4077.onrender.com/api/v1/skill/update/${id}`, {proficiency},{
         withCredentials: true,
         headers: {"Content-Type": "application/json"}
     })
