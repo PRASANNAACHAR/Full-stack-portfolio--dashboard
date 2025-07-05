@@ -54,7 +54,7 @@ const dispatch = useDispatch()
                   </CardHeader>
                   <CardFooter>
                   <Link
-                    to={user.portfolioURL ? user.portfolioURL : "https://full-stack-portfolio-frontend.vercel.app/"}
+                    to={user.portfolioURL ? user.portfolioURL : "https://full-stack-portfolio-frontend.vercel.app"}
                     target="_blank"
                   >
                     <Button>
