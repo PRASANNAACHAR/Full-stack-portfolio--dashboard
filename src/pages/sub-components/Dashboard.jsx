@@ -53,14 +53,14 @@ const dispatch = useDispatch()
                      </CardDescription>
                   </CardHeader>
                   <CardFooter>
-                  <Link
+                  <a
                     to={user.portfolioURL ? user.portfolioURL : "https://full-stack-portfolio-frontend.vercel.app"}
                     target="_blank"
                   >
                     <Button>
                       Visit Portfolio
                     </Button> 
-                    </Link>
+                    </a>
                   </CardFooter>
                 </Card>
                 <Card className="flex flex-col justify-center">
