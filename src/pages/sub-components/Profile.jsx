@@ -27,15 +27,21 @@ const Profile = () => {
                        <Label >Profile Image</Label>
                        <img src={user && user.avatar && user.avatar.url} alt="avatar" className='w-full h-auto sm:w-72 sm:h-72 rounded-2xl' />
                     </div>
-                    <div className='grid gap-2 w-full sm:w-72'>
-  <Label>Resume</Label>
-  <img
-    src={user?.resume?.url}
-    alt="resume"
-    className='w-full h-auto sm:w-72 sm:h-72 rounded-2xl pointer-events-none'
-    draggable={false}
-  />
-</div>
+                    {user?.resume?.url ? (
+  <div className='grid gap-2 w-full sm:w-72'>
+    <Label>Resume</Label>
+    <iframe
+      src={user.resume.url}
+      title="resume"
+      className='w-full h-72 sm:w-72 sm:h-72 rounded-2xl border'
+    />
+  </div>
+) : (
+  <div className='grid gap-2 w-full sm:w-72'>
+    <Label>Resume</Label>
+    <p className="text-sm text-gray-500">No resume uploaded</p>
+  </div>
+)}
 
                 </div>
                 <div className='grid gap-2'>
