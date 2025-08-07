@@ -27,16 +27,15 @@ const Profile = () => {
                        <Label >Profile Image</Label>
                        <img src={user && user.avatar && user.avatar.url} alt="avatar" className='w-full h-auto sm:w-72 sm:h-72 rounded-2xl' />
                     </div>
-                    {user?.resume?.url && (
-  <div className='grid gap-2 w-full sm:w-72'>
-    <Label>Resume</Label>
-    <iframe
-      src={user.resume.url}
-      title="resume"
-      className='w-full h-72 sm:w-72 sm:h-72 rounded-2xl border'
-    />
-  </div>
-)}
+                    <div className='grid gap-2 w-full sm:w-72'>
+  <Label>Resume</Label>
+  <iframe
+    src={user?.resume?.url}
+    className='w-full h-72 rounded-2xl'
+    title="Resume Preview"
+    sandbox=""
+  />
+</div>
 
                 </div>
                 <div className='grid gap-2'>
