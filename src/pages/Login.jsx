@@ -8,7 +8,7 @@ import { clearAllUserErrors, login } from "@/store/slices/userSlice";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import SpecialLoadingButton from "./sub-components/SpecialLoadingButton";
-import login from "@/assets/login.png"; // or .jpg, .svg
+import login from "@/assets/login.jpg"; // or .jpg, .svg
 
 
 const Login = () => {
@@ -89,7 +89,7 @@ const Login = () => {
       </div>
       <div className="hidden bg-muted lg:block">
         <img 
-        src="/login.png"
+        src="/login.jpg"
         alt="login Image"
         className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
         />
