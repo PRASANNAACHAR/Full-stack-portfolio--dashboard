@@ -29,11 +29,11 @@ const Profile = () => {
                     </div>
                     <div className='grid gap-2 w-full sm:w-72'>
   <Label>Resume</Label>
-  <iframe
+  <img
     src={user?.resume?.url}
-    className='w-full h-72 rounded-2xl'
-    title="Resume Preview"
-    sandbox=""
+    alt="resume"
+    className='w-full h-auto sm:w-72 sm:h-72 rounded-2xl pointer-events-none'
+    draggable={false}
   />
 </div>
 
