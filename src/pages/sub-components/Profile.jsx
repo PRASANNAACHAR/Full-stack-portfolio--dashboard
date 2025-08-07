@@ -31,7 +31,7 @@ const Profile = () => {
   <div className='grid gap-2 w-full sm:w-72'>
     <Label>Resume</Label>
     <iframe
-      src={user.resume.url}
+      src={`${user.resume.url}#toolbar=0&navpanes=0&scrollbar=0`}
       title="resume"
       className='w-full h-72 sm:w-72 sm:h-72 rounded-2xl border'
     />
